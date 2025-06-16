@@ -1,12 +1,11 @@
 import React, { useRef } from 'react';
 import { motion, useAnimationControls } from 'framer-motion';
 
-// A clean and smooth infinite scrolling banner component
+// An infinite scrolling banner 
 const InfiniteBanner = () => {
   const sliderRef = useRef(null);
   const controls = useAnimationControls();
 
-  // Your existing banner items
   const banners = [
     "MEAL PLAN WITH GROCERY STORE",
     "MAKING THE MOST OF YOUR GROCERY",
@@ -14,16 +13,16 @@ const InfiniteBanner = () => {
     "GET YOUR DAILY ESSENTIALS",
   ];
 
-  // Start the animation when the component mounts
+  // Start the animation
   const startAnimation = () => {
     controls.start({
-      x: ['0%', '-50%'], // Move to half the width for seamless looping
+      x: ['0%', '-50%'],
       transition: {
         x: {
           repeat: Infinity,
           repeatType: 'loop',
-          duration: 20, // Adjust this for faster/slower scrolling
-          ease: 'linear', // Smooth, continuous motion
+          duration: 20, 
+          ease: 'linear',
         },
       },
     });
@@ -38,9 +37,8 @@ const InfiniteBanner = () => {
         className="flex"
         animate={controls}
         initial={{ x: '0%' }}
-        onHoverStart={() => controls.stop()} // Pause on hover
-        onHoverEnd={startAnimation} // Resume on hover end
-        // Start animation immediately
+        onHoverStart={() => controls.stop()} 
+        onHoverEnd={startAnimation}
         onMount={() => startAnimation()}
       >
         {[...banners, ...banners].map((text, index) => (

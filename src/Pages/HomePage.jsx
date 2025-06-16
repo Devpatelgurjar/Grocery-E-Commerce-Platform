@@ -7,7 +7,7 @@ import PopularItems from '../components/PopularItems/PopularItems.jsx'
 const HomePage = () => {
   return (
    <main className="p-4 space-y-6">
-      <Banner/>
+      <div className='max-md:hidden'><Banner/></div>
       <Categories />
       <PopularItems />
     </main>

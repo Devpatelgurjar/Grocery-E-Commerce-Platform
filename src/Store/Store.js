@@ -1,19 +1,19 @@
 import { create } from 'zustand';
 
 export const useCartStore = create((set) => ({
-  cart: JSON.parse(localStorage.getItem('cart')) || [],
+  cart: JSON.parse(localStorage.getItem('cart')) || [], 
 
   addToCart: (item) =>
     set((state) => {
-      const updatedCart = [...state.cart, { ...item, qty: 1 }];
+      const updatedCart =  [...state.cart, { ...item, qty: 1 }];
       localStorage.setItem('cart', JSON.stringify(updatedCart));
-      return { cart: updatedCart };
+        return { cart: updatedCart };
     }),
 
   removeFromCart: (id) =>
     set((state) => {
       const updatedCart = state.cart.filter((item) => item.id !== id);
-      localStorage.setItem('cart', JSON.stringify(updatedCart));
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
       return { cart: updatedCart };
     }),
 

@@ -4,7 +4,7 @@ import { Popularitems } from '../constant';
 import { useCartStore } from '../Store/Store';
 
 const ProductDetail = () => {
-  const { id } = useParams();
+  const { id,} = useParams();
   const product = Popularitems.find(item => item.id === parseInt(id));
 
   const { cart, addToCart, removeFromCart } = useCartStore();
