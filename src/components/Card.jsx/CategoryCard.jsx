@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { useCartStore } from '../../Store/Store';
 
-const CategoryCard = ({item,name}) => {
+const CategoryCard = ({item}) => {
      const { cart, addToCart, removeFromCart } = useCartStore();
       const isInCart = (id) => cart.some(item => item.id === id);
   return (
@@ -10,8 +10,9 @@ const CategoryCard = ({item,name}) => {
           key={item.id}
           className="flex max-md:flex-col max-md:gap-4 items-center justify-between bg-white rounded shadow p-4"
         >
-  
+          <Link to={`/product/${item.id}`}>
           <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded" />
+         </Link>
 
           {/* info */}
           <div className="flex-1 px-4">

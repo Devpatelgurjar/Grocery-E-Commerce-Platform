@@ -1,11 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Popularitems } from '../constant';
+import { compound } from '../constant';
 import { useCartStore } from '../Store/Store';
 
 const ProductDetail = () => {
-  const { id,} = useParams();
-  const product = Popularitems.find(item => item.id === parseInt(id));
+  const {id} = useParams();
+  
+  const product = compound.find(item => item.id === parseInt(id));
 
   const { cart, addToCart, removeFromCart } = useCartStore();
   const isInCart = cart.some(item => item.id === product.id);
